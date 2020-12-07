@@ -4,6 +4,7 @@ var express = require("express");
 var path = require("path");
 var http =require("http");
 var fs = require("fs");
+const routes = require('./routes');
 
 
 
@@ -38,7 +39,15 @@ function handleRequest(request, response) {
         res.send("");
       });
       
+      app.get("/notes", function(req, res) {
+        // 
+        res.sendFile(path.join(__dirname, "notes.html"));
+      });
       
+      app.get("*", function(req, res) {
+        // 
+        res.sendFile(path.join(__dirname, "notes.html"));
+      });
 
     return fs.readFile(__dirname + "/index.html", function(err, data) {
       if (err) throw err;
