@@ -8,9 +8,9 @@ const $noteList = $(".list-container .list-group");
 let activeNote = {};
 
 // A function for getting all notes from the db
-const getNotes = () => {
+const getNotes = ("db.json") => {
   return $.ajax({
-    url: "/api/notes",
+    url: "/api/notes/db.json",
     method: "GET",
   });
 };
@@ -18,7 +18,7 @@ const getNotes = () => {
 // A function for saving a note to the db
 const saveNote = (note) => {
   return $.ajax({
-    url: "/api/notes",
+    url: "/api/notes/db.json",
     data: note,
     method: "POST",
   });
@@ -27,7 +27,7 @@ const saveNote = (note) => {
 // A function for deleting a note from the db
 const deleteNote = (id) => {
   return $.ajax({
-    url: "api/notes/" + id,
+    url: "api/notes/db.json" + id,
     method: "DELETE",
   });
 };
